@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#"
+     xml:base="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace">
+    <owl:Ontology rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats"/>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#has -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#has"/>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#inhabit -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#inhabit"/>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-part-of -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-part-of"/>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-proper-part-of-some -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-proper-part-of-some"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Arboreal -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Arboreal">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Aves -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Aves">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Granivorous"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Seed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bee -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bee">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Arboreal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#inhabit"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maple"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Branch -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Branch">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-proper-part-of-some"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Stem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Twig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#BroadLeaf -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#BroadLeaf">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Leaf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bush -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bush">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Plant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Coniferous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Coniferous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Tree"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#has"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#NeedleLeaf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Consumer -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Consumer">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Deciduous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Deciduous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Tree"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#has"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#BroadLeaf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Folivorous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Folivorous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Forests -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Forests">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Frugivorous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Frugivorous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Fruit -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Fruit">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Garig -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Garig">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Granivorous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Granivorous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Grass -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Grass">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Plant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Inhabitant -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Inhabitant">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Juniper -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Juniper">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Coniferous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Leaf -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Leaf">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Twig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maple -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maple">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Deciduous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maquis -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maquis">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#NeedleLeaf -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#NeedleLeaf">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Leaf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Oak -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Oak">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Deciduous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Parrot -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Parrot">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Frugivorous"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Fruit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Pine -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Pine">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Coniferous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Plant -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Plant"/>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Pseudomaqius -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Pseudomaqius">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Role -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Role">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Root -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Root">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Seed -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Seed">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Squirriel -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Squirriel">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Arboreal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#inhabit"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Oak"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Stem -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Stem">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thorn -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thorn">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Tree -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Tree">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Plant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Forests"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Twig -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Twig">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Wood -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Wood">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Woodworm -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Woodworm">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylophagous"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Wood"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylem -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylem">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#PartofPlants"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Tree"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylophagous -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylophagous">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL) -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-proper-part-of-some"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#eats"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#has"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#is-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#inhabit"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Thing(OWL)"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Arboreal">
+        <rdfs:comment>They inhabit in the trees.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Root">
+        <rdfs:comment>Root, in botany, that part of a vascular plant normally underground.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Aves">
+        <rdfs:comment>Their diet contents seeds.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Leaf">
+        <rdfs:comment>Leaves are part of branches.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Seed">
+        <rdfs:comment>Seed eaten by granivorous.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Frugivorous">
+        <rdfs:comment>An animal that eats some fruits.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Deciduous">
+        <rdfs:comment>They are trees with large leaves. They shed their leaves in fall to get ready for the cold winter to follow.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Pseudomaqius">
+        <rdfs:comment>In the Black Sea Region, instead of forests destroyed between 100-200 meters in the coastal area, the moist shrubs and shrubs similar to scrub are called Yalancı Maki (Pseudomaki).</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Granivorous">
+        <rdfs:comment>They eats some seeds of plants.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Parrot">
+        <rdfs:comment>Their diet contents fruits.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Coniferous">
+        <rdfs:comment>Coniferous trees are types of common softwood trees that are identified by pine-like needle leaves and seed-producing cones. Most types of conifers are evergreen trees, although some conifers are deciduous and lose their leaves in fall.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Branch">
+        <rdfs:comment>A branchor tree branch (sometimes referred to in botany as a ramus) is a woody structural member connected to but not part of the central trunk of a tree (or sometimes a shrub). </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Fruit">
+        <rdfs:comment>Fruits eaten by frugivorous.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Squirriel">
+        <rdfs:comment>They live in the trees.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Maquis">
+        <rdfs:comment>Vegetation from woody, thorny, dwarf trees, shrubs and shrubs such as wild olives, shrubs, laden, laurel, myrtle, oleander, tincture, typical of the Mediterranean climate.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Role">
+        <rdfs:comment>Various roles are assigned to animals.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Bee">
+        <rdfs:comment>They make honey hives for trees.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Folivorous">
+        <rdfs:comment>Their diet contents leaves.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Wood">
+        <rdfs:comment>Wood eaten by xylophagous.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Twig">
+        <rdfs:comment>A slender woody shoot growing from a branch or stem of a tree or shrub.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Garig">
+        <rdfs:comment>Plant communities of very short thorny shrubs seen in areas where maquis were destroyed in the coastal areas of Garig, Mediterranean and Aegean regions. There are species such as lavender, thyme, heather, jasmine and broom. It is also known as frigana.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Xylophagous">
+        <rdfs:comment>An animal that eats wood.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://lumii.lv/ontologies/ForestsofTurkeyOntology.owl#Woodworm">
+        <rdfs:comment>Their diet contents wood.</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.0.1) http://owlapi.sourceforge.net -->
+
