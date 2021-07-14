@@ -18,7 +18,7 @@ segmentationlist = []
 posTaggingList = []
 antiDuplicateList = []
 
-sentence = "Adü'den kalkan 607 numarada, 17:15'te (ZaferMeydanı) Zafer Meydanı durağından geçmektedir."
+sentence = "Adü'den kalkan sarıcivciv, 17:15'te (ZaferMeydanı) Zafer Meydanı durağından geçmektedir."
 
 
 def analyzeQuestion():

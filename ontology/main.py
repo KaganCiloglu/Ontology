@@ -22,7 +22,6 @@ print(objectLabelList)
 
 def getOnto():
 
-
     className_str = segmentationList[0].capitalize()
     index = objectLabelList.index("demo." + segmentationList[2].capitalize())
     iri_str = "*" + segmentationList[2].capitalize()
@@ -39,7 +38,7 @@ def getOnto():
     print(objectList)
     print(objectLabelList)
 
-    """Creating instance for otobusClass"""
+    """Creating instance and property for otobusClass"""
     check_list = ["numara", "no", "numaralı", "nolu", "no'lu", "numaranın", "no.'lu", "numarada"]
     check = any(item in check_list for item in wordList)
     print(check)
@@ -86,7 +85,28 @@ def getOnto():
                 else:
                     print("couldnt do it")
             else:
-                pass
+                check_list_as_set = set(check_list)
+                intersection = check_list_as_set.intersection(wordList)
+                intersection_as_list = list(intersection)
+                if intersection_as_list[0] != "otobüs":
+                    className_str = intersection_as_list[0]
+                    iri_str = "*" + intersection_as_list[0].capitalize()
+                    print(iri_str)
+                    check_list = onto.search(iri=iri_str)
+                    if check_list == []:
+                        className = className_str
+                        superclass = objectList[1]
+                        className_str = CreateClass.CreateC(className, superclass)
+                        objectList.append(className_str)
+                        objectLabelList.append(str(className_str))
+
+                        domainClass = className_str
+                        rangeClass = objectList[1]
+                        DefiningProperty.DefiningSynonym(domainClass, rangeClass)
+                    else:
+                        print("couldnt do it")
+                else:
+                    print("couldnt do it")
         else:
             check_list = ['605', '606', '607', '608']
             check = any(item in check_list for item in wordList)

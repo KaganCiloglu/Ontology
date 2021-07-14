@@ -28,3 +28,10 @@ def DefiningAtTime(domainClass, rangeClass):
         class at_time(ObjectProperty):
             domain = [domainClass]
             range = [rangeClass]
+
+def DefiningSynonym(domainClass, rangeClass):
+    with onto:
+
+        class synonym(ObjectProperty):
+            domain = [domainClass]
+            range = [rangeClass]
