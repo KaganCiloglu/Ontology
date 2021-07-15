@@ -16,34 +16,73 @@ objectList, objectLabelList = DefaultOnto.defaultOnt()
 segmentationList, wordList = SentenceAnalyzer.analyzeQuestion()
 instanceLabelList = []
 print(wordList)
-
+print(segmentationList)
 print(objectList)
 print(objectLabelList)
 
 def getOnto():
 
-    className_str = segmentationList[0].capitalize()
-    index = objectLabelList.index("demo." + segmentationList[2].capitalize())
-    iri_str = "*" + segmentationList[2].capitalize()
-    check_list = onto.search(iri=iri_str)
-    if check_list != []:
-        className = className_str
-        superclass = objectList[index]
-        className_str = CreateClass.CreateC(className, superclass)
-        objectList.append(className_str)
-        objectLabelList.append(str(className_str))
+    """Appending new layers to the ontology via Noun Phrases"""
+    if segmentationList != []:
+        className_str = segmentationList[0].capitalize()
+        index = objectLabelList.index("demo." + segmentationList[2].capitalize())
+        iri_str = "*" + segmentationList[2].capitalize()
+        check_list = onto.search(iri=iri_str)
+        if check_list != []:
+            className = className_str
+            superclass = objectList[index]
+            className_str = CreateClass.CreateC(className, superclass)
+            objectList.append(className_str)
+            objectLabelList.append(str(className_str))
+        else:
+            print("couldnt do it(1)")
     else:
-        print("couldnt do it")
+        pass
 
     print(objectList)
     print(objectLabelList)
 
-    """Creating instance and property for otobusClass"""
+    """Creating instances and properties for durakClass"""
+    for word in wordList:
+        if "durağ" in word:
+            index = wordList.index(word)
+            instanceName = wordList[index - 1]
+            if segmentationList != []:
+                if instanceName in segmentationList[0]:
+                    iri_str = "*" + instanceName + "durağı"
+                    check_list = onto.search(iri=iri_str)
+                    if check_list == []:
+                        instanceName = segmentationList[0] + "durağı"
+                        inWhichClass = objectList[0]
+                        instanceName = CreateInstance.CreateI(instanceName, inWhichClass)
+                        instanceLabelList.append(instanceName)
+                    else:
+                        print("couldnt do it(9)")
+                else:
+                    print("couldnt do it(10)")
+            else:
+                instanceName = wordList[index - 1]
+                iri_str = "*" + instanceName + "durağı"
+                check_list = onto.search(iri=iri_str)
+                if check_list == []:
+                    instanceName = instanceName + "durağı"
+                    inWhichClass = objectList[0]
+                    instanceName = CreateInstance.CreateI(instanceName, inWhichClass)
+                    instanceLabelList.append(instanceName)
+                else:
+                    print("couldnt do it(8)")
+        else:
+            pass
+
+    """Creating instances and properties for otobusClass"""
     check_list = ["numara", "no", "numaralı", "nolu", "no'lu", "numaranın", "no.'lu", "numarada"]
     check = any(item in check_list for item in wordList)
     print(check)
     if check == True:
-        check_list2 = ['605', '606', '607', '608']
+        check_list2 = []
+        i=100
+        for i in range(999):
+            check_list2.append(str(i))
         check2 = any(item in check_list2 for item in wordList)
         print(check2)
         if check2 == True:
@@ -60,15 +99,18 @@ def getOnto():
                 instanceName = CreateInstance.CreateI(instanceName, inWhichClass)
                 instanceLabelList.append(instanceName)
             else:
-                print("couldnt do it")
+                print("couldnt do it(2)")
         else:
             pass
     else:
-        check_list = ["sarıcivciv", "halkotobüsü", "otobüs", "minibüs", "dolmuş", "belediye otobüsü", "birlik"]
+        check_list = ["sarıcivciv", "halk otobüsü", "otobüs", "minibüs", "dolmuş", "belediye otobüsü", "birlik"]
         check = any(item in check_list for item in wordList)
         print(check)
         if check == True:
-            check_list2 = ['605', '606', '607', '608']
+            check_list2 = []
+            i = 100
+            for i in range(999):
+                check_list2.append(str(i))
             check2 = any(item in check_list2 for item in wordList)
             print(check2)
             if check2 == True:
@@ -83,7 +125,7 @@ def getOnto():
                     inWhichClass = objectList[1]
                     instanceName = CreateInstance.CreateI(instanceName, inWhichClass)
                 else:
-                    print("couldnt do it")
+                    print("couldnt do it(3)")
             else:
                 check_list_as_set = set(check_list)
                 intersection = check_list_as_set.intersection(wordList)
@@ -104,11 +146,14 @@ def getOnto():
                         rangeClass = objectList[1]
                         DefiningProperty.DefiningSynonym(domainClass, rangeClass)
                     else:
-                        print("couldnt do it")
+                        print("couldnt do it(4)")
                 else:
-                    print("couldnt do it")
+                    print("couldnt do it(5)")
         else:
-            check_list = ['605', '606', '607', '608']
+            check_list = []
+            i = 100
+            for i in range(999):
+                check_list.append(str(i))
             check = any(item in check_list for item in wordList)
             print(check)
             if check == True:
@@ -123,38 +168,14 @@ def getOnto():
                     inWhichClass = objectList[1]
                     instanceName = CreateInstance.CreateI(instanceName, inWhichClass)
                 else:
-                    print("couldnt do it")
+                    print("couldnt do it(6)")
             else:
-                print("couldnt do it")
+                print("couldnt do it(7)")
 
-
-    """instanceName = "no605"
-    inWhichClass = otobusClass
-    no605 = CreateInstance.CreateI(instanceName, inWhichClass)
-
-    domainInstance = tamUcreti
-    rangeInstance = ucret
-    CreateRelation.CreateR(domainInstance, rangeInstance)"""
-
-    """className = "ZaferMeydaniDuragi"
-    superclass = ZaferMeydani
-    zaferMeydaniDuragi = CreateClass.CreateC(className, superclass)
-
-    domainClass = seferClass
-    rangeClass = guzergahClass
-    DefiningProperty.DefiningHasA(domainClass, rangeClass)
-
-    domainClass = guzergahClass
-    rangeClass = ucretClass
-    DefiningProperty.DefiningHasA(domainClass, rangeClass)
-
-    domainClass = durakClass
-    rangeClass = guzergahClass
-    DefiningProperty.DefiningPartOf(domainClass, rangeClass)
-
-    domainClass = seferClass
-    rangeClass = guzergahClass
-    DisjointClasses.DisjointC(domainClass, rangeClass)"""
+    """Creating instances and properties for güzergahClass"""
+    """Creating instances and properties for seferClass"""
+    """Creating instances and properties for ücretClass"""
+    """Creating instances and properties for meydanClass"""
 
     print("\nclasses:")
     print(list(onto.classes()))
@@ -168,9 +189,7 @@ def getOnto():
 
 def main():
 
-
     getOnto()
-
 
 if __name__ == '__main__':
     main()
