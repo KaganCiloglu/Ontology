@@ -8,12 +8,6 @@ def CreateC(className, superclass):
 
         className = types.new_class(className, (superclass,))
 
-    className(Thing)
-
-    """with onto:
-
-        NewClass2 = types.new_class("zaferMeydanı", (NewClass,))
-
-    NewClass2(NewClass)"""
+    """className(superclass)"""
 
     return className

@@ -1,31 +1,31 @@
 from owlready2 import *
 onto = get_ontology("file://C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Dönem/Ontoloji Mühendisliği (C2)/demo.owl").load()
 
-def DefiningPartOf(domainClass, rangeClass):
+def DefiningHypernym(domainClass, rangeClass):
     with onto:
 
-        class part_of(ObjectProperty):
+        class hypernym(ObjectProperty):
             domain = [domainClass]
             range = [rangeClass]
 
-def DefiningHasA(domainClass, rangeClass):
+def DefiningHyponym(domainClass, rangeClass):
     with onto:
 
-        class has_a(ObjectProperty):
+        class hyponym(ObjectProperty):
             domain = [domainClass]
             range = [rangeClass]
 
-def DefiningAtLocation(domainClass, rangeClass):
+def DefiningDomainTopic(domainClass, rangeClass):
     with onto:
 
-        class at_location(ObjectProperty):
+        class domainTopic(ObjectProperty):
             domain = [domainClass]
             range = [rangeClass]
 
-def DefiningAtTime(domainClass, rangeClass):
+def DefiningMemberHolonym(domainClass, rangeClass):
     with onto:
 
-        class at_time(ObjectProperty):
+        class memberHolonym(ObjectProperty):
             domain = [domainClass]
             range = [rangeClass]
 

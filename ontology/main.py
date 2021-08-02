@@ -10,11 +10,14 @@ import DefaultOnto
 import DefiningProperty
 import DisjointClasses
 import SentenceAnalyzer
+import turkish_wordnet_parser
 
 onto = get_ontology("file://C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Dönem/Ontoloji Mühendisliği (C2)/demo.owl").load()
 objectList, objectLabelList = DefaultOnto.defaultOnt()
 segmentationList, wordList = SentenceAnalyzer.analyzeQuestion()
 instanceLabelList = []
+focusList = ["otogar"]
+wordNetList = []
 print(wordList)
 print(segmentationList)
 print(objectList)
@@ -41,6 +44,30 @@ def getOnto():
 
     print(objectList)
     print(objectLabelList)
+
+    """Appending new layers to the ontology via WordNet"""
+    if focusList != []:
+        for i in range(len(focusList)):
+            iri_str = "*" + focusList[i].capitalize()
+            check_list = onto.search(iri=iri_str)
+            if check_list == []:
+                value = focusList[i]
+                turkish_wordnet_parser.xmlkelime_parser(value)
+                wordNetList = turkish_wordnet_parser.wordNet()
+                print(wordNetList)
+                if "TYPE - HYPERNYM" in wordNetList:
+                    index = wordNetList.index('TYPE - HYPERNYM')
+                    domainTopic_str = wordNetList[index-1]
+                    iri_str = "*" + domainTopic_str.capitalize()
+                    check_list = onto.search(iri=iri_str)
+                    if check_list != []:
+                        className_str = focusList[i].capitalize()
+                        index = objectLabelList.index("demo." + domainTopic_str.capitalize())
+                        className = className_str
+                        superclass = objectList[index]
+                        className_str = CreateClass.CreateC(className, superclass)
+                        objectList.append(className_str)
+                        objectLabelList.append(str(className_str))
 
     """Creating instances and properties for durakClass"""
     for word in wordList:
@@ -172,11 +199,6 @@ def getOnto():
             else:
                 print("couldnt do it(7)")
 
-    """Creating instances and properties for güzergahClass"""
-    """Creating instances and properties for seferClass"""
-    """Creating instances and properties for ücretClass"""
-    """Creating instances and properties for meydanClass"""
-
     print("\nclasses:")
     print(list(onto.classes()))
     print("\ninstances:")
@@ -185,6 +207,7 @@ def getOnto():
     print(list(onto.disjoint_classes()))
     check_str = onto.search(iri="*Durak")
     print(check_str)
+
     """onto.save(file="C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Dönem/Ontoloji Mühendisliği (C2)/demo.owl", format="rdfxml")"""
 
 def main():

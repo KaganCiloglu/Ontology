@@ -8,6 +8,6 @@ def CreateObj(objectName):
 
         objectName = types.new_class(objectName, (Thing,))
 
-    objectName(Thing)
+    """objectName(Thing)"""
 
     return objectName

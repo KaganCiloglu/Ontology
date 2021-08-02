@@ -27,6 +27,15 @@ def defaultOnt():
     else:
         print("Requirement already satisfied")
 
+    """check_list = onto.search(iri="*Ulaşım")
+    if check_list == []:
+        objectName = "Ulaşım"
+        ulasimClass = CreateObject.CreateObj(objectName)
+        objectlist.append(ulasimClass)
+        labellist.append(str(ulasimClass))
+    else:
+        print("Requirement already satisfied")"""
+
     check_list = onto.search(iri="*Guzergah")
     if check_list == []:
         objectName = "Guzergah"
