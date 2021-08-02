@@ -18,9 +18,9 @@ def defaultOnt():
     else:
         print("Requirement already satisfied")
 
-    check_list = onto.search(iri="*Otobus")
+    check_list = onto.search(iri="*Otobüs")
     if check_list == []:
-        objectName = "Otobus"
+        objectName = "Otobüs"
         otobusClass = CreateObject.CreateObj(objectName)
         objectlist.append(otobusClass)
         labellist.append(str(otobusClass))

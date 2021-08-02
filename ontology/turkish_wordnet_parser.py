@@ -22,6 +22,11 @@ def xmlkelime_parser(value):
     object = ET.parse(
         "turkish_wordnet.xml")
     source = object.getroot()
+    wordNetList.clear()
+    wholeList.clear()
+    turList.clear()
+    turList2.clear()
+    typeList.clear()
     while True:
         """value = str(input("Kelime giriniz:"))"""
         value = value.lower()

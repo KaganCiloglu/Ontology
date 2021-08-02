@@ -16,7 +16,7 @@ onto = get_ontology("file://C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Döne
 objectList, objectLabelList = DefaultOnto.defaultOnt()
 segmentationList, wordList = SentenceAnalyzer.analyzeQuestion()
 instanceLabelList = []
-focusList = ["otogar"]
+focusList = ["otogar", "okul otobüsü"]
 wordNetList = []
 print(wordList)
 print(segmentationList)
@@ -26,6 +26,7 @@ print(objectLabelList)
 def getOnto():
 
     """Appending new layers to the ontology via Noun Phrases"""
+    global wordNetList
     if segmentationList != []:
         className_str = segmentationList[0].capitalize()
         index = objectLabelList.index("demo." + segmentationList[2].capitalize())
@@ -48,26 +49,42 @@ def getOnto():
     """Appending new layers to the ontology via WordNet"""
     if focusList != []:
         for i in range(len(focusList)):
+            wordNetList.clear()
+            print("\n", i, "wordNetList")
+            print(wordNetList)
             iri_str = "*" + focusList[i].capitalize()
+            print("\n", i, "iri_str")
+            print(iri_str)
             check_list = onto.search(iri=iri_str)
             if check_list == []:
                 value = focusList[i]
+                print("\n", i, "value")
+                print(value)
                 turkish_wordnet_parser.xmlkelime_parser(value)
                 wordNetList = turkish_wordnet_parser.wordNet()
+                print("\n", i, "wordNetList")
                 print(wordNetList)
                 if "TYPE - HYPERNYM" in wordNetList:
                     index = wordNetList.index('TYPE - HYPERNYM')
-                    domainTopic_str = wordNetList[index-1]
-                    iri_str = "*" + domainTopic_str.capitalize()
+                    hypernym_str = wordNetList[index-1]
+                    print("\n", i, "hypernym_str")
+                    print(hypernym_str)
+                    iri_str = "*" + hypernym_str.capitalize()
                     check_list = onto.search(iri=iri_str)
+                    print("\n", i, "check_list")
+                    print(check_list)
                     if check_list != []:
                         className_str = focusList[i].capitalize()
-                        index = objectLabelList.index("demo." + domainTopic_str.capitalize())
+                        className_str = className_str.replace(" ", "")
+                        index = objectLabelList.index("demo." + hypernym_str.capitalize())
                         className = className_str
                         superclass = objectList[index]
+                        print("\n", i, "superclass")
+                        print(superclass)
                         className_str = CreateClass.CreateC(className, superclass)
                         objectList.append(className_str)
                         objectLabelList.append(str(className_str))
+
 
     """Creating instances and properties for durakClass"""
     for word in wordList:
@@ -208,7 +225,7 @@ def getOnto():
     check_str = onto.search(iri="*Durak")
     print(check_str)
 
-    """onto.save(file="C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Dönem/Ontoloji Mühendisliği (C2)/demo.owl", format="rdfxml")"""
+    onto.save(file="C:/Users/asus/Desktop/4. Sınıf/4. Sınıf 1. Dönem/Ontoloji Mühendisliği (C2)/demo.owl", format="rdfxml")
 
 def main():
 
